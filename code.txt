@@ -1,0 +1,65 @@
+String voicecommand;
+int REDlight = 4;
+int YELLOWlight = 5;
+void RedlightOn(){
+digitalWrite (REDlight, LOW);
+}
+void RedlightOff(){
+digitalWrite (REDlight, HIGH);
+}
+void YellowlightOn(){
+digitalWrite (YELLOWlight, LOW);
+}
+void YellowlightOff(){
+digitalWrite (YELLOWlight, HIGH);
+}
+void alllightson() {
+digitalWrite (REDlight, LOW);
+digitalWrite (YELLOWlight, LOW);
+}
+void alllightsoff() {
+digitalWrite (REDlight, HIGH);
+digitalWrite (YELLOWlight, HIGH);
+}
+void setup() {
+Serial.begin(9600);
+pinMode(REDlight, OUTPUT);
+pinMode(YELLOWlight, OUTPUT);
+digitalWrite (REDlight, HIGH);
+digitalWrite (YELLOWlight, HIGH);
+}
+void loop() {
+while(Serial.available()) {
+delay(10);
+char a=Serial.read();
+if(a=='#')
+{
+break; 
+}
+voicecommand += a;
+}
+if (voicecommand.length() > 0) {
+Serial.println(voicecommand);
+if (voicecommand == "on" || voicecommand== "all on")
+{
+alllightson() ;
+}
+else if (voicecommand == "of" || voicecommand=="all of")
+{
+alllightsoff() ;
+}
+else if(voicecommand =="red" || voicecommand =="red on"){
+RedlightOn();
+}
+else if(voicecommand =="red of"){
+RedlightOff();
+}
+else if(voicecommand =="yellow" || voicecommand =="yellow on"){
+YellowlightOn();
+}
+else if(voicecommand =="yellow of"){
+YellowlightOff();
+}
+voicecommand="";
+}
+}

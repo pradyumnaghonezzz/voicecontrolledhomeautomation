@@ -1,0 +1,18 @@
+COMPONENTS-
+*arduino uno
+*bluetooth module
+*android app
+*connecting wires
+*relay
+PROCEDURE-
+*open arduino software and upload this code on arduino.
+*connect proper terminals of bluetooth module to arduino.  
+#note- never connect bluetooth module first and then apply code.
+#make sure that Tx and Rx terminals of bluetooth is connected to
+ Rx and Tx terminal respectively. same terminal should not be 
+ connected to each other.
+*use relay to connect arduino and electrical appliance , refer relay 
+ circuit diagram for connections.
+*download any bluetooth android voice controlled app to give commands.
+ eg-"Bluetooth arduino voice command"
+*connect your mobile and arduino over bluetooth connection.
